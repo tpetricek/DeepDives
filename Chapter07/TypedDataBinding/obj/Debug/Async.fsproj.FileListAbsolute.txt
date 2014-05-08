@@ -1,0 +1,9 @@
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\bin\Debug\BookSampleApp.XML
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\bin\Debug\BookSampleApp.exe
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\bin\Debug\BookSampleApp.pdb
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\bin\Debug\FSharp.Core.dll
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\bin\Debug\FSharp.Core.xml
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\obj\Debug\Async.fsprojResolveAssemblyReference.cache
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\obj\Debug\BookSampleApp.g.resources
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\obj\Debug\BookSampleApp.exe
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\Async\obj\Debug\BookSampleApp.pdb
