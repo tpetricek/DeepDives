@@ -1,0 +1,12 @@
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\BookSampleApp.XML
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\FSharp.Core.dll
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\FSharp.Core.xml
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\BookSampleApps.StructuringFunctionalWay.exe
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\BookSampleApps.StructuringFunctionalWay.pdb
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\obj\Debug\BookSampleApps.StructuringFunctionalWay.exe
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\obj\Debug\BookSampleApps.StructuringFunctionalWay.pdb
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\obj\Debug\StructuringFunctionalWay.fsprojResolveAssemblyReference.cache
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\Castle.Core.dll
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\Castle.Core.xml
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\UIElements.dll
+C:\Users\mitekm\Documents\GitHub\fsharp-deep-dives-chapter\Source code\StructuringFunctionalWay\bin\Debug\UIElements.pdb
