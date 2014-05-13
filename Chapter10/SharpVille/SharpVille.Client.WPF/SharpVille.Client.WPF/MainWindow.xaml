@@ -1,0 +1,49 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SharpVille" Height="650" Width="510" Margin="0">
+
+    <Grid Margin="0" Name="MainContainer">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="500"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Name="StateContainer" Background="DarkSlateGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Orientation="Horizontal">
+                <Label Content="$ " Foreground="White" FontSize="30" FontWeight="Bold"></Label>
+                <Label Content="{Binding Balance}" 
+                       Foreground="White" FontSize="30" FontWeight="Bold"></Label>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <Label Content="LVL " Foreground="White" FontSize="30" FontWeight="Bold"></Label>
+                <Label Content="{Binding Level}" 
+                       Foreground="White" FontSize="30" FontWeight="Bold"></Label>
+            </StackPanel>
+
+            <Rectangle Name="NextLevel"
+                       Grid.Column="2" Fill="White" Margin="10" 
+                       HorizontalAlignment="Left" Width="200"></Rectangle>
+            <Rectangle Name="Exp"
+                       Grid.Column="2" Fill="DodgerBlue" Margin="10"
+                       HorizontalAlignment="Left" Width="0"></Rectangle>
+        </Grid>
+            
+        <Grid Name="FarmPlotContainer" Grid.Row="1" 
+                    Height="500" Width="500" Margin="0"
+                    VerticalAlignment="Top" HorizontalAlignment="Left">
+        </Grid>
+        
+        <StackPanel Name="LeaderboardContainer" Grid.Row="2"
+                    Height="100" Margin="0"
+                    Background="White">
+        </StackPanel>
+    </Grid>
+</Window>
