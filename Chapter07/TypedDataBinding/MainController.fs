@@ -5,11 +5,11 @@ open System.Threading
 open Microsoft.FSharp.Linq
 open Linq.NullableOperators
 
-type MainContoller(?symbology : string -> Async<string option>) = 
+type MainContoller(?symbology: string -> Async<string option>) = 
 
     let symbologyImpl = defaultArg symbology Symbology.yahoo
 
-    let closePosition(model : MainModel) = 
+    let closePosition(model: MainModel) = 
         model.ClosePrice <- model.Price
         model.PositionState <- PositionState.Closed
 
@@ -23,7 +23,7 @@ type MainContoller(?symbology : string -> Async<string option>) =
             | PriceUpdate newPrice -> Sync(this.UpdateCurrentPrice newPrice)
             | BuyOrSell -> Sync this.MoveToNextPositionState
 
-    member this.GetInstrumentInfo(model : MainModel) = 
+    member this.GetInstrumentInfo(model: MainModel) = 
         async {
             model |> Validation.textRequired <@ fun m -> m.Symbol @>
             if model.IsValid
@@ -39,11 +39,11 @@ type MainContoller(?symbology : string -> Async<string option>) =
                     model |> Validation.setError <@ fun m -> m.Symbol @> message
         }
 
-    member this.UpdateCurrentPrice newPrice (model : MainModel) =
+    member this.UpdateCurrentPrice newPrice (model: MainModel) =
         let prevPrice = model.Price
         model.Price <- Nullable newPrice
-        match model.PositionState with
-        | PositionState.Opened -> 
+        if model.PositionState = PositionState.Opened 
+        then
             model.PnL <- 
                 let x = decimal model.PositionSize *? ( model.Price ?-? model.OpenPrice)
                 x.GetValueOrDefault()
@@ -51,9 +51,8 @@ type MainContoller(?symbology : string -> Async<string option>) =
             let stopLossLimit = prevPrice ?> newPrice && newPrice <=? model.StopLossAt
             if takeProfitLimit || stopLossLimit 
             then closePosition model
-        | _ -> ()
 
-    member this.MoveToNextPositionState (model : MainModel) = 
+    member this.MoveToNextPositionState (model: MainModel) = 
         match model.PositionState with
         | PositionState.Zero ->
             model |> Validation.positive <@ fun m -> m.PositionSize @>

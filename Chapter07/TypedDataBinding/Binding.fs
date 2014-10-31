@@ -22,18 +22,18 @@ let (|Target|_|) = function
 
 let coerce _ = raise <| NotImplementedException()
 
-let rec (|BindingInstance|_|) = function 
+let rec (|Source|_|) = function 
     | PropertyGet( Some( Value _), sourceProperty, []) -> 
         Some( Binding(path = sourceProperty.Name))
-    | SpecificCall <@ coerce @> (None, _, [ BindingInstance binding ]) -> 
-        Some binding
-    | NewObject( ctorInfo, [ BindingInstance binding ] ) 
+    | NewObject( ctorInfo, [ Source binding ] ) 
         when ctorInfo.DeclaringType.GetGenericTypeDefinition() = typedefof<Nullable<_>> -> 
         Some binding 
-    | SpecificCall <@ String.Format : string * obj -> string @> (None, [], [ Value(:? string as format, _); Coerce( BindingInstance binding, _) ]) ->
+    | SpecificCall <@ coerce @> (None, _, [ Source binding ]) -> 
+        Some binding
+    | SpecificCall <@ String.Format: string * obj -> string @> (None, [], [ Value(:? string as format, _); Coerce( Source binding, _) ]) ->
         binding.StringFormat <- format
         Some binding
-    | Call(None, method', [ BindingInstance binding ]) -> 
+    | Call(None, method', [ Source binding ]) -> 
         binding.Mode <- BindingMode.OneWay
         binding.Converter <- {
             new IValueConverter with
@@ -49,10 +49,10 @@ let rec split = function
     | Sequential(head, tail) -> head :: split tail
     | tail -> [ tail ]
 
-let fromExpression expr = 
+let ofExpression expr = 
     for e in split expr do
         match e with 
-        | PropertySet(Target target, targetProperty, [], BindingInstance binding) ->
+        | PropertySet(Target target, targetProperty, [], Source binding) ->
             BindingOperations.SetBinding(target, targetProperty.DependencyProperty, binding) |> ignore
         | expr -> failwithf "Invalid binding quotation:\n%O" expr
 

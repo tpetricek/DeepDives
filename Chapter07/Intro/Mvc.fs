@@ -3,9 +3,14 @@
 open System
 open System.ComponentModel
 
+// Listing 9. MVC
+
+// Listing 5. IView interface
 type IView<'TEvent, 'TModel> =
-    abstract Events : IObservable<'TEvent>
-    abstract SetBindings: model : 'TModel -> unit
+    //#A First responsibility: event source
+    abstract Events: IObservable<'TEvent>
+    //#B Second responsibility: set-up data bindings 
+    abstract SetBindings: 'TModel -> unit
 
 type IController<'TEvent, 'TModel> =
     abstract InitModel: 'TModel -> unit

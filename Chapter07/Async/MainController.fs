@@ -5,11 +5,11 @@ open System.Threading
 open Microsoft.FSharp.Linq
 open Linq.NullableOperators
 
-type MainContoller(?symbology : string -> Async<string option>) = 
+type MainContoller(?symbology: string -> Async<string option>) = 
 
     let symbologyImpl = defaultArg symbology Symbology.yahoo
 
-    let closePosition(model : MainModel) = 
+    let closePosition(model: MainModel) = 
         model.ClosePrice <- model.Price
         model.PositionState <- PositionState.Closed
         model.IsPositionActionAllowed <- false
@@ -26,7 +26,7 @@ type MainContoller(?symbology : string -> Async<string option>) =
             | PriceUpdate newPrice -> Sync(this.UpdateCurrentPrice newPrice)
             | BuyOrSell -> Sync this.MoveToNextPositionState
 
-    member this.GetInstrumentInfo(model : MainModel) = 
+    member this.GetInstrumentInfo(model: MainModel) = 
         async {
             let context = SynchronizationContext.Current
             let! secInfo = symbologyImpl model.Symbol
@@ -34,11 +34,11 @@ type MainContoller(?symbology : string -> Async<string option>) =
             secInfo |> Option.iter (fun x -> model.InstrumentName <- x) 
         }
 
-    member this.UpdateCurrentPrice newPrice (model : MainModel) =
+    member this.UpdateCurrentPrice newPrice (model: MainModel) =
         let prevPrice = model.Price
         model.Price <- Nullable newPrice
-        match model.PositionState with
-        | PositionState.Opened -> 
+        if model.PositionState = PositionState.Opened 
+        then
             model.PnL <- 
                 let x = decimal model.PositionSize *? ( model.Price ?-? model.OpenPrice)
                 x.GetValueOrDefault()
@@ -46,9 +46,8 @@ type MainContoller(?symbology : string -> Async<string option>) =
             let stopLossLimit = prevPrice ?> newPrice && newPrice <=? model.StopLossAt
             if takeProfitLimit || stopLossLimit 
             then closePosition model
-        | _ -> ()
 
-    member this.MoveToNextPositionState(model : MainModel) = 
+    member this.MoveToNextPositionState(model: MainModel) = 
         match model.PositionState with
         | PositionState.Zero ->
             model.OpenPrice <- model.Price

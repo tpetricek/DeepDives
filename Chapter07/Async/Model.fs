@@ -8,17 +8,17 @@ open Castle.DynamicProxy
 
 module Method = 
 
-    let (|PropertySetter|_|) (m : MethodInfo) =
+    let (|PropertySetter|_|) (m: MethodInfo) =
         match m.Name.Split('_') with
         | [| "set"; propertyName |] -> Some propertyName
         | _ -> None
 
-    let (|PropertyGetter|_|) (m : MethodInfo) =
+    let (|PropertyGetter|_|) (m: MethodInfo) =
         match m.Name.Split('_') with
         | [| "get"; propertyName |] -> Some propertyName
         | _ -> None
 
-    let (|Abstract|_|) (m : MethodInfo) = if m.IsAbstract then Some() else None
+    let (|Abstract|_|) (m: MethodInfo) = if m.IsAbstract then Some() else None
 
 open Method
 
@@ -45,8 +45,8 @@ type Model() =
     member internal this.TriggerPropertyChanged propertyName = 
         propertyChangedEvent.Trigger(this, PropertyChangedEventArgs propertyName)
 
-    static member Create<'T when 'T :> Model and 'T : not struct>() : 'T = 
-        let interceptors : IInterceptor[] = [| notifyPropertyChanged; AbstractProperties() |]
+    static member Create<'T when 'T :> Model and 'T: not struct>(): 'T = 
+        let interceptors: IInterceptor[] = [| notifyPropertyChanged; AbstractProperties() |]
         proxyFactory.CreateClassProxy interceptors    
 
 and AbstractProperties() =

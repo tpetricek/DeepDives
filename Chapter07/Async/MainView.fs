@@ -18,7 +18,7 @@ type MainEvents =
     | PriceUpdate of decimal
     | BuyOrSell 
 
-type MainView(window : MainWindow) = 
+type MainView(window: MainWindow) = 
 
     let priceFeedSimulation = window.PriceFeedSimulation
 
@@ -115,7 +115,7 @@ type MainView(window : MainWindow) =
             window.DataContext <- model
 
             window.Symbol.SetBinding(TextBox.TextProperty, "Symbol") |> ignore
-            window.InstrumentName.SetBinding(TextBlock.TextProperty, Binding(path = "InstrumentName", StringFormat = "Name : {0}")) |> ignore
+            window.InstrumentName.SetBinding(TextBlock.TextProperty, Binding(path = "InstrumentName", StringFormat = "Name: {0}")) |> ignore
             priceFeedSimulation.SetBinding(CheckBox.IsCheckedProperty, "PriceFeedSimulation") |> ignore
 
             window.Action.SetBinding(Button.IsEnabledProperty, "IsPositionActionAllowed") |> ignore
@@ -159,8 +159,8 @@ type MainView(window : MainWindow) =
 
             priceFeedSimulation.SetBinding(CheckBox.IsCheckedProperty, Binding("IsEnabled", Mode = BindingMode.OneWayToSource, Source = priceFeed)) |> ignore
 
-            let inpc : INotifyPropertyChanged = unbox model
-            let model : MainModel = unbox model 
+            let inpc: INotifyPropertyChanged = unbox model
+            let model: MainModel = unbox model 
             inpc.PropertyChanged.Add <| fun args ->
                 match args.PropertyName with 
                 | "OpenPrice" -> 

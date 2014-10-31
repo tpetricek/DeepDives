@@ -4,16 +4,16 @@ open System
 open System.ComponentModel
 
 type IView<'TEvent, 'TModel> =
-    abstract Events : IObservable<'TEvent>
-    abstract SetBindings: model : 'TModel -> unit
+    abstract Events: IObservable<'TEvent>
+    abstract SetBindings: model: 'TModel -> unit
 
 type EventHandler<'TModel> = 
     | Sync of ('TModel -> unit)
     | Async of ('TModel -> Async<unit>)
 
 type IController<'TEvent, 'TModel> =
-    abstract InitModel : 'TModel -> unit
-    abstract Dispatcher : ('TEvent -> EventHandler<'TModel>)
+    abstract InitModel: 'TModel -> unit
+    abstract Dispatcher: ('TEvent -> EventHandler<'TModel>)
 
 module Mvc = 
     let start (model: #INotifyPropertyChanged, view: IView<'TEvent, 'TModel>, controller: IController<_, _>) = 
