@@ -43,10 +43,13 @@ type MainContoller(?symbology: string -> string option) =
         if model.PositionState = PositionState.Opened 
         then 
             model.PnL <- 
-                let x = decimal model.PositionSize *? ( model.Price ?-? model.OpenPrice)
-                x.GetValueOrDefault()
-            let takeProfitLimit = prevPrice ?< newPrice && newPrice >=? model.TakeProfitAt
-            let stopLossLimit = prevPrice ?> newPrice && newPrice <=? model.StopLossAt
+                let diff = model.Price ?-? model.OpenPrice
+                let pnl = decimal model.PositionSize *? diff
+                pnl.GetValueOrDefault()
+            let takeProfitLimit = 
+                prevPrice ?< newPrice && newPrice >=? model.TakeProfitAt
+            let stopLossLimit = 
+                prevPrice ?> newPrice && newPrice <=? model.StopLossAt
             if takeProfitLimit || stopLossLimit 
             then closePosition model
 

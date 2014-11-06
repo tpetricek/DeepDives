@@ -11,7 +11,7 @@ open Microsoft.FSharp.Quotations.DerivedPatterns
 type PropertyInfo with
     member this.DependencyProperty = 
         this.DeclaringType
-            .GetField(this.Name + "Property", BindingFlags.Static ||| BindingFlags.Public)
+            .GetField(this.Name + "Property")
             .GetValue(null, [||]) 
             |> unbox<DependencyProperty> 
 
@@ -25,12 +25,21 @@ let coerce _ = raise <| NotImplementedException()
 let rec (|Source|_|) = function 
     | PropertyGet( Some( Value _), sourceProperty, []) -> 
         Some( Binding(path = sourceProperty.Name))
-    | NewObject( ctorInfo, [ Source binding ] ) 
-        when ctorInfo.DeclaringType.GetGenericTypeDefinition() = typedefof<Nullable<_>> -> 
+    | NewObject( ctor, [ Source binding ] ) 
+        when 
+            let declType = ctor.DeclaringType
+            declType.GetGenericTypeDefinition() = typedefof<_ Nullable> -> 
         Some binding 
     | SpecificCall <@ coerce @> (None, _, [ Source binding ]) -> 
         Some binding
-    | SpecificCall <@ String.Format: string * obj -> string @> (None, [], [ Value(:? string as format, _); Coerce( Source binding, _) ]) ->
+    | SpecificCall 
+        <@ String.Format: string * obj -> string @> 
+        (
+            None, 
+            [], 
+            [ Value(:? string as format, _); 
+            Coerce( Source binding, _) ]
+        ) ->
         binding.StringFormat <- format
         Some binding
     | Call(None, method', [ Source binding ]) -> 
@@ -40,7 +49,8 @@ let rec (|Source|_|) = function
                 member this.Convert(value, _, _, _) = 
                     try method'.Invoke(null, [| value |]) 
                     with _ -> DependencyProperty.UnsetValue
-                member this.ConvertBack(_, _, _, _) = DependencyProperty.UnsetValue
+                member this.ConvertBack(_, _, _, _) = 
+                    DependencyProperty.UnsetValue
         }
         Some binding
     | _ -> None
@@ -52,7 +62,9 @@ let rec split = function
 let ofExpression expr = 
     for e in split expr do
         match e with 
-        | PropertySet(Target target, targetProperty, [], Source binding) ->
-            BindingOperations.SetBinding(target, targetProperty.DependencyProperty, binding) |> ignore
+        | PropertySet(Target target, targetProperty, [], Source binding) 
+            ->
+            BindingOperations.SetBinding(
+                target, targetProperty.DependencyProperty, binding) |> ignore
         | expr -> failwithf "Invalid binding quotation:\n%O" expr
 

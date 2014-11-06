@@ -3,7 +3,7 @@
 open System
 open System.ComponentModel
 
-type IView<'TEvent> =
+type IView<'TEvent, 'TModel> =
     abstract Events: IObservable<'TEvent>
     abstract SetBindings: model: 'TModel -> unit
 
@@ -16,7 +16,7 @@ type IController<'TEvent, 'TModel> =
     abstract Dispatcher: ('TEvent -> EventHandler<'TModel>)
 
 module Mvc = 
-    let start (model: #INotifyPropertyChanged, view: IView<'TEvent>, controller: IController<_, _>) = 
+    let start (model: #INotifyPropertyChanged, view: IView<_, _>, controller: IController<_, _>) = 
         controller.InitModel model
         view.SetBindings model
         view.Events.Subscribe(fun event -> 

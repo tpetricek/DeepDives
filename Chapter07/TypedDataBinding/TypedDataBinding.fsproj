@@ -49,7 +49,7 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <ItemGroup>
-    <None Include="Binding.fsx" />
+    <None Include="Binding.Prototype.fsx" />
     <Compile Include="Mvc.fs" />
     <Compile Include="Validation.fs" />
     <Compile Include="Binding.fs" />

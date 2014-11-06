@@ -17,8 +17,11 @@ type IController<'TEvent, 'TModel> =
     abstract EventHandler: 'TModel * 'TEvent -> unit
 
 module Mvc = 
-    let start (model: #INotifyPropertyChanged, view: IView<'TEvent, 'TModel>, controller: IController<_, _>) = 
+    let start (model: #INotifyPropertyChanged, 
+                view: IView<_, _>, 
+                controller: IController<_, _>) = 
         controller.InitModel model
         view.SetBindings model
-        view.Events.Subscribe(fun event -> controller.EventHandler(model, event))
+        view.Events.Subscribe(fun event -> 
+            controller.EventHandler(model, event))
 

@@ -15,7 +15,7 @@ module Binding =
     type PropertyInfo with
         member this.DependencyProperty = 
             this.DeclaringType
-                .GetField(this.Name + "Property", BindingFlags.Static ||| BindingFlags.Public)
+                .GetField(this.Name + "Property")
                 .GetValue(null, [||]) 
                 |> unbox<DependencyProperty> 
 

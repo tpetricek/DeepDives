@@ -97,7 +97,7 @@ type MainView(window: MainWindow) =
                     None
         )
 
-    interface IView<MainEvents> with
+    interface IView<MainEvents, MainModel> with
         member this.Events = 
             [
                 window.InstrumentInfo.Click |> Observable.map (fun _ -> InstrumentInfo)
@@ -126,10 +126,14 @@ type MainView(window: MainWindow) =
                         member this.Convert(value, _, _, _) = 
                             match value with 
                             | :? PositionState as x -> 
-                                match x with  | Zero -> "Buy" | Opened -> "Sell" | Closed -> "Current"
+                                match x with  
+                                | Zero -> "Buy" 
+                                | Opened -> "Sell" 
+                                | Closed -> "Current"
                                 |> box
                             | _ -> DependencyProperty.UnsetValue
-                        member this.ConvertBack(_, _, _, _) = DependencyProperty.UnsetValue
+                        member this.ConvertBack(_, _, _, _) = 
+                            DependencyProperty.UnsetValue
                 })
             ) |> ignore
             window.Price.SetBinding(Run.TextProperty, "Price") |> ignore

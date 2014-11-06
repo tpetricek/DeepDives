@@ -21,13 +21,14 @@ module Binding =
 //Right-hand side has reference to model (binding source) and property (binding path)
                 PropertyGet( Some( Value _), sourceProperty, [])           
             ) ->
-                let target : FrameworkElement = window |> control.GetValue |> unbox 
+                let target : FrameworkElement = 
+                    window |> control.GetValue |> unbox 
 //Following WPF convention, dependency property name is formed by adding suffix “Property” to regular companion .NET property.           
                 let dpPropertyName = targetProperty.Name + "Property" 
                 let dp = 
                     targetProperty
                         .DeclaringType
-                        .GetField(dpPropertyName, BindingFlags.Static ||| BindingFlags.Public)
+                        .GetField(dpPropertyName)
                         .GetValue(null, [||]) 
                         |> unbox<DependencyProperty> 
 
