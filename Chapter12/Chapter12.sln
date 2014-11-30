@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ScrabbleLibrary", "Scrabble\ScrabbleLibrary\ScrabbleLibrary.fsproj", "{30E58CDE-B8A2-4197-A71D-3661565C8925}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Scrabble.Tests", "Scrabble\Scrabble.Tests\Scrabble.Tests.fsproj", "{066301C3-7D90-43D8-8AA4-9452F165866F}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TestDoubles", "TestDoubles\TestDoubles.fsproj", "{2C6613DA-CCC2-4FF3-9992-9AEA80DB4247}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30E58CDE-B8A2-4197-A71D-3661565C8925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E58CDE-B8A2-4197-A71D-3661565C8925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E58CDE-B8A2-4197-A71D-3661565C8925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E58CDE-B8A2-4197-A71D-3661565C8925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{066301C3-7D90-43D8-8AA4-9452F165866F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066301C3-7D90-43D8-8AA4-9452F165866F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066301C3-7D90-43D8-8AA4-9452F165866F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066301C3-7D90-43D8-8AA4-9452F165866F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C6613DA-CCC2-4FF3-9992-9AEA80DB4247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C6613DA-CCC2-4FF3-9992-9AEA80DB4247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C6613DA-CCC2-4FF3-9992-9AEA80DB4247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C6613DA-CCC2-4FF3-9992-9AEA80DB4247}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
