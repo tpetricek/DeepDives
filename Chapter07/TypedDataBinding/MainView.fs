@@ -18,24 +18,24 @@ type MainEvents =
     | PriceUpdate of decimal
     | BuyOrSell 
 
-type MainView(window : MainWindow) = 
+type MainView(window: MainWindow) = 
 
-    let symbol : TextBox = window.Symbol
-    let instrumentInfo : Button = window.InstrumentInfo
-    let instrumentName : TextBlock = window.InstrumentName
-    let priceFeedSimulation : CheckBox = window.PriceFeedSimulation
+    let symbol: TextBox = window.Symbol
+    let instrumentInfo: Button = window.InstrumentInfo
+    let instrumentName: TextBlock = window.InstrumentName
+    let priceFeedSimulation: CheckBox = window.PriceFeedSimulation
 
-    let positionSize : TextBox = window.PositionSize
-    let stopLossAt : TextBox = window.StopLossAt
-    let takeProfitAt : TextBox = window.TakeProfitAt
+    let positionSize: TextBox = window.PositionSize
+    let stopLossAt: TextBox = window.StopLossAt
+    let takeProfitAt: TextBox = window.TakeProfitAt
 
-    let action : Button = window.Action
-    let actionText : Run = window.ActionText
-    let price : Run = window.Price
+    let action: Button = window.Action
+    let actionText: Run = window.ActionText
+    let price: Run = window.Price
 
-    let ``open`` : TextBlock = window.OpenPrice
-    let close : TextBlock = window.ClosePrice
-    let pnl : TextBlock = window.PnL
+    let ``open``: TextBlock = window.OpenPrice
+    let close: TextBlock = window.ClosePrice
+    let pnl: TextBlock = window.PnL
 
     //Chart
     let area = new ChartArea() 
@@ -48,7 +48,7 @@ type MainView(window : MainWindow) =
     let mutable nextPrice = fun() -> raise <| NotImplementedException()
 
     do
-        let chart : Chart = window.Chart
+        let chart: Chart = window.Chart
         chart.ChartAreas.Add area
 
         area.AxisX.LabelStyle.Enabled <- false
@@ -137,10 +137,10 @@ type MainView(window : MainWindow) =
 
             window.DataContext <- model
 
-            Binding.fromExpression 
+            Binding.ofExpression 
                 <@ 
                     symbol.Text <- model.Symbol 
-                    instrumentName.Text <- String.Format("Name : {0}", model.InstrumentName)
+                    instrumentName.Text <- String.Format("Name: {0}", model.InstrumentName)
                     priceFeedSimulation.IsChecked <- Nullable model.PriceFeedSimulation
 
                     positionSize.Text <- Binding.coerce model.PositionSize
@@ -160,7 +160,7 @@ type MainView(window : MainWindow) =
 
             priceFeedSimulation.SetBinding(CheckBox.IsCheckedProperty, Binding("IsEnabled", Mode = BindingMode.OneWayToSource, Source = priceFeed)) |> ignore
 
-            let inpc : INotifyPropertyChanged = upcast model
+            let inpc: INotifyPropertyChanged = upcast model
             inpc.PropertyChanged.Add <| fun args ->
                 match args.PropertyName with 
                 | "OpenPrice" -> 

@@ -1,12 +1,13 @@
 ﻿open System
 
-type Events = Incr | Decr
-type View = IObservable<Events>  
+type UpDownEvent = Incr | Decr
+type View = IObservable<UpDownEvent>  
 type Model = { mutable State : int }
-type Controller = Model -> Events -> unit
+type Controller = Model -> UpDownEvent -> unit
 type Mvc = Controller -> Model -> View -> IDisposable
 
-let subject = Event<_>()
+//Event<_> type from the F# core library plays two roles: Observer via Trigger method and Subject (aka event source) because it inherits from IObservable<_><_>.
+let subject = Event<UpDownEvent>()
 let raiseEvents xs = List.iter subject.Trigger xs
 let view = subject.Publish
 
