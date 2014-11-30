@@ -14,10 +14,7 @@ module Binding =
 
     type PropertyInfo with
         member this.DependencyProperty = 
-            this.DeclaringType
-                .GetField(this.Name + "Property")
-                .GetValue(null, [||]) 
-                |> unbox<DependencyProperty> 
+            this.DeclaringType.GetField(this.Name + "Property").GetValue(null) |> unbox<DependencyProperty> 
 
     let rec (|PropertyPathAndSourceType|_|) = function 
         | PropertyGet( Some( Var dataContext), prop, []) -> Some( prop.Name, dataContext.Type)

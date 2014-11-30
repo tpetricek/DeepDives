@@ -10,10 +10,7 @@ open Microsoft.FSharp.Quotations.DerivedPatterns
 
 type PropertyInfo with
     member this.DependencyProperty = 
-        this.DeclaringType
-            .GetField(this.Name + "Property")
-            .GetValue(null, [||]) 
-            |> unbox<DependencyProperty> 
+        this.DeclaringType.GetField(this.Name + "Property").GetValue(null) |> unbox<DependencyProperty> 
 
 let (|Target|_|) = function 
     | Some( FieldGet( Some( Value( window, _)), control)) -> 
