@@ -30,7 +30,6 @@ module TypedVector =
         LanguagePrimitives.Float32WithMeasure<'M> (U.v.Length())
 
     let scale2 (k : float32<'K>, U : TypedVector2<'M>) : TypedVector2<'K 'M> =
-        let conv = LanguagePrimitives.Float32WithMeasure<'K 'M>
         let v = Vector2.Multiply(U.v, float32 k)
         TypedVector2(v)
 

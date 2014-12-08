@@ -8,13 +8,13 @@ type InputStateMachine<'InputState, 'Result> =
 // Used for selecting the controlling played in the "press start" screen.
 // Also used for pausing/resuming during gameplay.
 let waitReleased pressed released func =
-    let rec waitPressed =
+    let rec waitPressed() =
         fun (inputState) ->
             if pressed(inputState) then
                 let result = func inputState
                 waitReleased result
             else
-                waitPressed
+                waitPressed()
         |> Active
         
     and waitReleased result =
@@ -25,4 +25,4 @@ let waitReleased pressed released func =
                 waitReleased result
         |> Active
 
-    waitPressed
+    waitPressed()

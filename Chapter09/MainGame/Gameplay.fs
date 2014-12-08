@@ -2,6 +2,11 @@
 
 open Microsoft.Xna.Framework
 
+
+// Converts an int<'M> to a float32<'M>
+let conv (x : int<'M>) =
+    LanguagePrimitives.Float32WithMeasure<'M>(float32 x)
+
 // Seconds
 [<Measure>]
 type s
@@ -20,7 +25,7 @@ type pix
 
 type City =
     { Name : string
-      Population : float32<h>
+      Population : int<h>
       Position : TypedVector2<m>
     }
 
@@ -213,7 +218,7 @@ let update (random : System.Random) (world : World) (dt : float32<s>) orders sta
                         0.0f
                     else
                         1.0f - distance/Explosion.Radius
-                let casualties = city.Population * relativeCasualties
+                let casualties = (conv city.Population) * relativeCasualties
                 max (survivors - casualties) 0.0f<h>
                 ) survivors
         )
