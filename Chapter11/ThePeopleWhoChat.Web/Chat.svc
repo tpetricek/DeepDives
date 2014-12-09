@@ -1,0 +1,2 @@
+﻿<%@ ServiceHost Service="ThePeopleWhoChat.Service.ChatService"
+    Factory="System.ServiceModel.Activation.WebServiceHostFactory" %>

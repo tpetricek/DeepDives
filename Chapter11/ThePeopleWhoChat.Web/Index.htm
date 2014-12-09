@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TPWC</title>
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/moment.min.js"></script>
+    <script type="text/javascript" src="Scripts/ChatServiceClient.js"></script>
+    <script type="text/javascript">
+        service_redirectIfNotLoggedIn(function () {
+            window.location.href = "Login.htm";
+        });
+    </script>
+</head>
+<body>
+    <div id="container" style="width:auto">
+
+        <div id="header" style="background-color:#FFA500;">
+            <h2>TPWC</h2>
+            <h4>Here are the people who chat...</h4>
+            <button id="logout" onclick="logout()" >Logout</button>
+            <hr />
+
+            <button id="listsessions" onclick="listsessions()" >List Sessions</button>
+            <span id="sessions" />
+            <br />
+            <hr />
+
+            <button id="listrooms" onclick="listrooms()" >List Rooms</button>
+            <span id="rooms" />
+            <br />
+            <hr />
+    
+            <input id="roomId" type="text" />&nbsp;
+            <button id="enterRoom" onclick="enter()">Enter</button>&nbsp;
+            <button id="leaveRoom" onclick="leave()">Leave</button>
+            <span id="roomStatus" />
+            <br />
+            <hr />
+        </div>
+
+        <div id="menu" style="background-color:#FFD700;height:200px;width:40px;float:left;">
+
+
+        </div>
+
+        <div id="content" style="background-color:#EEEEEE;height:200px;width:auto;float:left;">
+            <div id="messageListArea" style="height:auto">
+                <button id="getMessages" onclick="getmessages()" >Get Messages</button>
+                <span id="messages" />
+            </div>
+
+            <div id="messagePostArea" style="height:100px">
+                <input id="messageText" type="text" />&nbsp;
+                <button id="postMessage" onclick="postmessage()">Post</button>&nbsp;
+                <span id="postMessageStatus" />
+
+            </div>
+        </div>
+
+
+        <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <br />
+    <hr />
+    
+    <script type="text/javascript">
+        function listsessions() {
+            list_sessions(function (data) {
+                $("#sessions").html(data.map(function (session) {
+                    return "<br/>" + session.userName + " " + session.roomId + " -> " + session.lastTouch;
+                }))
+            }, function (msg) { $("#sessions").html(msg); });
+        }
+        function listrooms() {
+            list_rooms(function (data) {
+                $("#rooms").html(data.map(function (room) {
+                    return "<br/>" + room.Id + " " + room.name + " -> \"" + room.description + "\"";
+                }))
+            }, function (msg) { $("#rooms").html(msg); });
+        }
+        function enter() {
+            enter_room($("#roomId").val(),
+                function(msg) { $("#roomStatus").html(msg) },
+                function(msg) { $("#roomStatus").html(msg) })
+        }
+
+        function logout() {
+            service_logout(function () {  window.location.href = "/Login.htm"; },
+                function(msg) { $("#results").val(msg); });
+        }
+        function getmessages() {
+            get_messages(function (data) {
+                $("#messages").html(data.map(function (msg) {
+                    return "<br/>" + msg.userName + " " + moment(msg.timestamp).format("HHmm: ") + msg.html;
+                }))
+            }, function (msg) { $("#messages").html(msg); });
+        }
+        function postmessage() {
+            post_message($("#messageText").val(),
+                function () { getmessages() },
+                function (err) { $("#postMessageStatus").html(err) })
+        }
+    </script>
+  </body>
+</html>

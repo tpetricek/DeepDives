@@ -1,0 +1,109 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2058598D-7619-4635-9828-D9762B6823A6}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFApplication", "WPFApplication", "{F3BA0ECE-8354-43AB-834A-E4E7A18C274C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFApplication.CS", "WPFApplication.CS", "{6363F712-6AFD-48E9-9431-3EDBE217FC26}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.ServiceHost", "ThePeopleWhoChat.ServiceHost\ThePeopleWhoChat.ServiceHost.fsproj", "{AD9190AC-0C02-4CB0-ADC1-07DFD371A412}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.Service", "ThePeopleWhoChat.Service\ThePeopleWhoChat.Service.fsproj", "{D78FABD6-5333-4DA6-86F7-A08031C74DE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePeopleWhoChat.Web", "ThePeopleWhoChat.Web\ThePeopleWhoChat.Web.csproj", "{061E0C6E-3BFF-4B04-A99B-5A03432FEE92}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.AdminTool", "ThePeopleWhoChat.AdminTool\ThePeopleWhoChat.AdminTool.fsproj", "{60B617B8-43FE-485F-A277-D6B87DD10ABD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.Core", "ThePeopleWhoChat.Core\ThePeopleWhoChat.Core.fsproj", "{D55B90A6-8223-47B2-B4FA-233F02E89D9A}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.Data", "ThePeopleWhoChat.Data\ThePeopleWhoChat.Data.fsproj", "{8BDEFB41-3B4C-410C-BBA3-F149BA9658A6}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.Core.UnitTest", "ThePeopleWhoChat.Core.UnitTest\ThePeopleWhoChat.Core.UnitTest.fsproj", "{AA5D3C9D-3B29-4AFF-96CA-A0D64A625BA8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.App", "ThePeopleWhoChat.App\ThePeopleWhoChat.App.fsproj", "{54535057-E73E-4DCF-8C15-D0058AE17030}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.App.RoomsList", "ThePeopleWhoChat.App.RoomsList\ThePeopleWhoChat.App.RoomsList.fsproj", "{BF218413-AC5A-464A-9CDC-99D3EA7EF323}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.App.Core", "ThePeopleWhoChat.App.Core\ThePeopleWhoChat.App.Core.fsproj", "{0BCA6954-A682-4CF7-A88A-4033BA0729F1}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ThePeopleWhoChat.App.MessagesList", "ThePeopleWhoChat.App.MessagesList\ThePeopleWhoChat.App.MessagesList.fsproj", "{91ABA1A7-7F41-4369-84F5-9CB6D7EC39D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePeopleWhoChat.App.CS", "ThePeopleWhoChat.App.CS\ThePeopleWhoChat.App.CS.csproj", "{158ABF2E-17FF-4815-8CE9-87C1BEF6FF86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD9190AC-0C02-4CB0-ADC1-07DFD371A412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9190AC-0C02-4CB0-ADC1-07DFD371A412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9190AC-0C02-4CB0-ADC1-07DFD371A412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9190AC-0C02-4CB0-ADC1-07DFD371A412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D78FABD6-5333-4DA6-86F7-A08031C74DE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78FABD6-5333-4DA6-86F7-A08031C74DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78FABD6-5333-4DA6-86F7-A08031C74DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78FABD6-5333-4DA6-86F7-A08031C74DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{061E0C6E-3BFF-4B04-A99B-5A03432FEE92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061E0C6E-3BFF-4B04-A99B-5A03432FEE92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061E0C6E-3BFF-4B04-A99B-5A03432FEE92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061E0C6E-3BFF-4B04-A99B-5A03432FEE92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60B617B8-43FE-485F-A277-D6B87DD10ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60B617B8-43FE-485F-A277-D6B87DD10ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60B617B8-43FE-485F-A277-D6B87DD10ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60B617B8-43FE-485F-A277-D6B87DD10ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55B90A6-8223-47B2-B4FA-233F02E89D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55B90A6-8223-47B2-B4FA-233F02E89D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55B90A6-8223-47B2-B4FA-233F02E89D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55B90A6-8223-47B2-B4FA-233F02E89D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BDEFB41-3B4C-410C-BBA3-F149BA9658A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDEFB41-3B4C-410C-BBA3-F149BA9658A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDEFB41-3B4C-410C-BBA3-F149BA9658A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDEFB41-3B4C-410C-BBA3-F149BA9658A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5D3C9D-3B29-4AFF-96CA-A0D64A625BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5D3C9D-3B29-4AFF-96CA-A0D64A625BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5D3C9D-3B29-4AFF-96CA-A0D64A625BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5D3C9D-3B29-4AFF-96CA-A0D64A625BA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54535057-E73E-4DCF-8C15-D0058AE17030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54535057-E73E-4DCF-8C15-D0058AE17030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54535057-E73E-4DCF-8C15-D0058AE17030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54535057-E73E-4DCF-8C15-D0058AE17030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF218413-AC5A-464A-9CDC-99D3EA7EF323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF218413-AC5A-464A-9CDC-99D3EA7EF323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF218413-AC5A-464A-9CDC-99D3EA7EF323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF218413-AC5A-464A-9CDC-99D3EA7EF323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BCA6954-A682-4CF7-A88A-4033BA0729F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCA6954-A682-4CF7-A88A-4033BA0729F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCA6954-A682-4CF7-A88A-4033BA0729F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCA6954-A682-4CF7-A88A-4033BA0729F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91ABA1A7-7F41-4369-84F5-9CB6D7EC39D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91ABA1A7-7F41-4369-84F5-9CB6D7EC39D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91ABA1A7-7F41-4369-84F5-9CB6D7EC39D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91ABA1A7-7F41-4369-84F5-9CB6D7EC39D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{158ABF2E-17FF-4815-8CE9-87C1BEF6FF86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{158ABF2E-17FF-4815-8CE9-87C1BEF6FF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{158ABF2E-17FF-4815-8CE9-87C1BEF6FF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{158ABF2E-17FF-4815-8CE9-87C1BEF6FF86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{54535057-E73E-4DCF-8C15-D0058AE17030} = {F3BA0ECE-8354-43AB-834A-E4E7A18C274C}
+		{BF218413-AC5A-464A-9CDC-99D3EA7EF323} = {F3BA0ECE-8354-43AB-834A-E4E7A18C274C}
+		{0BCA6954-A682-4CF7-A88A-4033BA0729F1} = {F3BA0ECE-8354-43AB-834A-E4E7A18C274C}
+		{91ABA1A7-7F41-4369-84F5-9CB6D7EC39D7} = {F3BA0ECE-8354-43AB-834A-E4E7A18C274C}
+		{158ABF2E-17FF-4815-8CE9-87C1BEF6FF86} = {6363F712-6AFD-48E9-9431-3EDBE217FC26}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+	EndGlobalSection
+EndGlobal

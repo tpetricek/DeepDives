@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/moment.min.js"></script>
+    <script type="text/javascript" src="Scripts/ChatServiceClient.js"></script>
+</head>
+<body>
+    Username:&nbsp;<input id="username" type="text" />&nbsp;&nbsp;
+    Password:&nbsp;<input id="password" type="password" />&nbsp;&nbsp;
+    <button id="login" onclick="login()" >Login</button>
+    <br />
+    <span id="status" style="color: red" />
+
+    <script type="text/javascript">
+        function login() {
+            var username = $("#username").val();
+            var password = $("#password").val();
+
+            service_login(username, password, function () {
+                window.location.href = "Index.htm";
+            }, function (msg) { $("#status").html(msg) });
+        }
+    </script>
+</body>
+</html>

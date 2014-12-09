@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UserControl x:Class="ThePeopleWhoChat.App.RoomsList.RoomsListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid x:Name="LayoutRoot" Background="Green">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Hello, Modular UI</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom">The green area is from the Module</TextBlock>
+    </Grid>
+</UserControl>
