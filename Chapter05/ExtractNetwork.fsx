@@ -1,10 +1,12 @@
-﻿// Code from Chapter 5 "Social network analysis"
+// Code from Chapter 5 "Social network analysis"
 // Evelina Gabasova, 2014
 // from the book F# Deep Dives, 2014
 // ==================================================
 
-#r "packages/FSharp.Data.2.0.7/lib/net40/FSharp.Data.dll"
+// WARNING: The FSharp.Data.Toolbox.Twitter.dll reference needs to come before
+// the FSharp.Data.dll reference (so that type provider can resolve sample JSON files)
 #r "packages/FSharp.Data.Toolbox.Twitter.0.2/lib/net40/FSharp.Data.Toolbox.Twitter.dll"
+#r "packages/FSharp.Data.2.0.7/lib/net40/FSharp.Data.dll"
 
 open System
 open System.IO
